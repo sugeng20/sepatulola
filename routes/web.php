@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.auth.login');
 });
+
+Route::get('/dashboard-admin', function () {
+    return view('pages.backend.admin.dashboard.index');
+});
