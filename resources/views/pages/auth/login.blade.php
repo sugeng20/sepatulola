@@ -53,26 +53,33 @@
                                     </div>
                                 </div>
                                 <div class="card-body pt-0">
-                                    <form class="my-4" action="index.html" method="POST">
+                                    @error('username')
+                                    <div class="alert alert-danger text-center mt-2">Username dan Password anda salah !
+                                    </div>
+                                    @enderror
+
+                                    <form class="my-4" action="{{ url('/authenticate') }}" method="POST">
                                         @csrf
                                         <div class="form-group mb-2">
                                             <label class="form-label" for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" name="username"
-                                                placeholder="Enter username">
+                                            <input type="text"
+                                                class="form-control @error('username') is-invalid @enderror"
+                                                id="username" name="username" placeholder="Enter username">
                                         </div>
                                         <!--end form-group-->
 
                                         <div class="form-group">
                                             <label class="form-label" for="userpassword">Password</label>
-                                            <input type="password" class="form-control" name="password"
-                                                id="userpassword" placeholder="Enter password">
+                                            <input type="password"
+                                                class="form-control @error('username') is-invalid @enderror"
+                                                name="password" id="userpassword" placeholder="Enter password">
                                         </div>
                                         <!--end form-group-->
 
                                         <div class="form-group mb-0 row">
                                             <div class="col-12">
                                                 <div class="d-grid mt-3">
-                                                    <button class="btn btn-primary" type="button">Log In <i
+                                                    <button class="btn btn-primary" type="submit">Log In <i
                                                             class="fas fa-sign-in-alt ms-1"></i></button>
                                                 </div>
                                             </div>

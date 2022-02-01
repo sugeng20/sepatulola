@@ -201,7 +201,8 @@
                         <a class="dropdown-item" href="#"><i class="ti ti-user font-16 me-1 align-text-bottom"></i>
                             Profile</a>
 
-                        <a class="dropdown-item" href="#"><i class="ti ti-power font-16 me-1 align-text-bottom"></i>
+                        <a class="dropdown-item" href="{{ url('/logout') }}"><i
+                                class="ti ti-power font-16 me-1 align-text-bottom"></i>
                             Logout</a>
                     </div>
                 </li>
