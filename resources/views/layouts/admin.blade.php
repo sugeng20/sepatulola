@@ -72,9 +72,9 @@
                         <!--end nav-item-->
 
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'dongeng' ? 'menuitem-active' : '' }}"
-                                href="{{ route('dongeng.index') }}"><i class="ti ti-speakerphone menu-icon"></i><span>
-                                    Dongeng</span></a>
+                            <a class="nav-link {{ Request::segment(1) == 'video' ? 'menuitem-active' : '' }}"
+                                href="{{ route('video.index') }}"><i class="ti ti-video-plus menu-icon"></i><span>
+                                    Video</span></a>
                         </li>
                         <!--end nav-item-->
 

@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\DongenController;
 use App\Http\Controllers\Admin\ManagementUsers;
+use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +26,6 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/management-user/ganti-password/{id}', [ManagementUsers::class, 'gantiPassword'])
                 ->name('management-users.ganti-password');
     Route::resource('/management-users', ManagementUsers::class);
-    Route::resource('/dongeng', DongenController::class);
+    Route::resource('/video', VideoController::class);
 });
 

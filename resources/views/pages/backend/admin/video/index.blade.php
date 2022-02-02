@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-Dongeng
+Video
 @endsection
 
 @section('content')
@@ -15,12 +15,12 @@ Dongeng
                         <li class="breadcrumb-item"><a href="#">Sepatulola</a>
                         </li>
                         <!--end nav-item-->
-                        <li class="breadcrumb-item"><a href="#">Dongeng</a>
+                        <li class="breadcrumb-item"><a href="#">Video</a>
                         </li>
 
                     </ol>
                 </div>
-                <h4 class="page-title">Dongeng</h4>
+                <h4 class="page-title">Video</h4>
             </div>
             <!--end page-title-box-->
         </div>
@@ -32,7 +32,7 @@ Dongeng
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('dongeng.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>
+                    <a href="{{ route('video.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>
                         Tambah Data
                     </a>
 
@@ -49,7 +49,7 @@ Dongeng
                                 <tr>
                                     <th>No</th>
                                     <th>Judul</th>
-
+                                    <th>Kategory</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -60,17 +60,18 @@ Dongeng
                                 @forelse ($items as $item)
                                 <tr>
                                     <td>{{ $no++ }}</td>
-                                    <td>{{ $item->judul }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->category }}</td>
 
                                     <td>
                                         <a href="{{ $item->link_youtube }}" title="Show" target="_blank"
                                             class="btn btn-info btn-sm"><i class="mdi mdi-eye-circle"></i>
                                         </a>
-                                        <a href="{{ route('dongeng.edit', $item->id) }}" title="Edit"
+                                        <a href="{{ route('video.edit', $item->id) }}" title="Edit"
                                             class="btn btn-warning btn-sm"><i class="mdi mdi-square-edit-outline"></i>
                                         </a>
 
-                                        <form class="d-inline" action="{{ route('dongeng.destroy', $item->id) }}"
+                                        <form class="d-inline" action="{{ route('video.destroy', $item->id) }}"
                                             method="POST" onsubmit="return confirm('Apakah Anda Yakin?')">
                                             @csrf
                                             @method('delete')

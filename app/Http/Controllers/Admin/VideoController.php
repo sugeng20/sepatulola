@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dongeng;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
-class DongenController extends Controller
+class VideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class DongenController extends Controller
      */
     public function index()
     {
-        $items = Dongeng::all();
-        return view('pages.backend.admin.dongeng.index', compact('items'));
+        $items = Video::all();
+        return view('pages.backend.admin.video.index', compact('items'));
     }
 
     /**
@@ -26,7 +26,7 @@ class DongenController extends Controller
      */
     public function create()
     {
-        return view('pages.backend.admin.dongeng.create');
+        return view('pages.backend.admin.video.create');
     }
 
     /**
@@ -38,23 +38,23 @@ class DongenController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'judul' => 'max:255|required',
-            'deskripsi' => 'required',
+            'title' => 'max:255|required',
+            'description' => 'required',
             'link_youtube' => 'required',
+            'category' => 'required',
         ]);
 
-        Dongeng::create($request->all());
+        Video::create($request->all());
 
-        return redirect()->route('dongeng.index')->with('status', 'Berhasil Menambahakn Data Dongeng Baru');
+        return redirect()->route('video.index')->with('status', 'Berhasil Menambahakn Data Video Baru');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Dongeng  $dongeng
      * @return \Illuminate\Http\Response
      */
-    public function show(Dongeng $dongeng)
+    public function show($id)
     {
         //
     }
@@ -62,44 +62,42 @@ class DongenController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Dongeng  $dongeng
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $item = Dongeng::findOrFail($id);
-        return view('pages.backend.admin.dongeng.edit', compact('item'));
+        $item = Video::findOrFail($id);
+        return view('pages.backend.admin.video.edit', compact('item'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Dongeng  $dongeng
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
-            'judul' => 'max:255|required',
-            'deskripsi' => 'required',
+            'title' => 'max:255|required',
+            'description' => 'required',
             'link_youtube' => 'required',
+            'category' => 'required',
         ]);
 
-        Dongeng::findOrFail($id)->update($request->all());
+        Video::findOrFail($id)->update($request->all());
 
-        return redirect()->route('dongeng.index')->with('status', 'Berhasil Mengupdate Data Dongeng');
+        return redirect()->route('video.index')->with('status', 'Berhasil Mengupdate Data Video');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Dongeng  $dongeng
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Dongeng::findOrFail($id)->delete();
-        return redirect()->route('dongeng.index')->with('status', 'Berhasil Menghapus Data Dongeng');
+        Video::findOrFail($id)->delete();
+        return redirect()->route('video.index')->with('status', 'Berhasil Menghapus Data Video');
     }
 }
