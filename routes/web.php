@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ManagementUsers;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +20,6 @@ Route::get('/', [AuthController::class, 'login']);
 Route::post('/authenticate', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/dashboard-admin', function () {
-    return view('pages.backend.admin.dashboard.index');
-});
+Route::get('/dashboard-admin', [DashboardController::class, 'index']);
+Route::post('/management-user/ganti-password/{id}', [ManagementUsers::class, 'gantiPassword'])->name('management-users.ganti-password');
+Route::resource('/management-users', ManagementUsers::class);

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Sepatulola - Dashboard</title>
+    <title>Sepatulola - @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Septulola - Sistem Informasi Terpadu Pengembangan Literasi Anak" name="description" />
     <meta content="" name="author" />
@@ -12,10 +12,12 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    @stack('add-plugins-css')
     <!-- App css -->
     <link href="{{ asset('backend/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+    @stack('add-css')
 
 </head>
 
@@ -36,12 +38,13 @@
         </div>
         <div class="sidebar-user-pro media border-end">
             <div class="position-relative mx-auto">
-                <img src="{{ asset('backend/images/users/user-4.jpg') }}" alt="user" class="rounded-circle thumb-md">
+                <img src="{{ asset('backend/images/users/' . Auth::user()->foto) }}" alt="user"
+                    class="rounded-circle thumb-md">
                 <span class="online-icon position-absolute end-0"><i class="mdi mdi-record text-success"></i></span>
             </div>
             <div class="media-body ms-2 user-detail align-self-center">
-                <h5 class="font-14 m-0 fw-bold">Zahra Maheswari</h5>
-                <p class="opacity-50 mb-0">Admin</p>
+                <h5 class="font-14 m-0 fw-bold">{{ Auth::user()->name }}</h5>
+                <p class="opacity-50 mb-0">{{ Auth::user()->role }}</p>
             </div>
         </div>
         <!--end logo-->
@@ -54,14 +57,17 @@
                     <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
 
                         <li class="nav-item">
-                            <a class="nav-link menuitem-active" href="{{ url('dashboard-admin') }}"><i
+                            <a class="nav-link {{ Request::segment(1) == 'dashboard-admin' ? 'menuitem-active' : '' }}"
+                                href="{{ url('dashboard-admin') }}"><i
                                     class="ti ti-dashboard menu-icon"></i><span>Dashboard</span></a>
                         </li>
                         <!--end nav-item-->
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="ti ti-users menu-icon"></i><span>User
-                                    Managements</span></a>
+                            <a class="nav-link {{ Request::segment(1) == 'management-users' ? 'menuitem-active' : '' }}"
+                                href="{{ route('management-users.index') }}"><i
+                                    class="ti ti-users menu-icon"></i><span>Management
+                                    Users</span></a>
                         </li>
                         <!--end nav-item-->
 
@@ -188,11 +194,11 @@
                     <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
                         aria-haspopup="false" aria-expanded="false">
                         <div class="d-flex align-items-center">
-                            <img src="{{ asset('backend/images/users/user-4.jpg') }}" alt="profile-user"
+                            <img src="{{ asset('backend/images/users/' . Auth::user()->foto) }}" alt="profile-user"
                                 class="rounded-circle me-2 thumb-sm" />
                             <div>
-                                <small class="d-none d-md-block font-11">Admin</small>
-                                <span class="d-none d-md-block fw-semibold font-12">Zahra Maheswari <i
+                                <small class="d-none d-md-block font-11">{{ Auth::user()->role }}</small>
+                                <span class="d-none d-md-block fw-semibold font-12">{{ Auth::user()->name }} <i
                                         class="mdi mdi-chevron-down"></i></span>
                             </div>
                         </div>
@@ -250,13 +256,10 @@
     <!-- end page-wrapper -->
 
     <!-- Javascript  -->
-
-    <script src="{{ asset('backend/plugins/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('backend/pages/analytics-index.init.js') }}"></script>
-
-
+    @stack('add-plugins-js')
     <!-- App js -->
     <script src="{{ asset('backend/js/app.js') }}"></script>
+    @stack('add-js')
 
 </body>
 <!--end body-->

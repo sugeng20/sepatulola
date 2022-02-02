@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+Dashboard
+@endsection
+
 @section('content')
 <div class="container-fluid">
     <!-- Page-Title -->
@@ -8,13 +12,12 @@
             <div class="page-title-box">
                 <div class="float-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Unikit</a>
+                        <li class="breadcrumb-item"><a href="#">Sepatulola</a>
                         </li>
                         <!--end nav-item-->
                         <li class="breadcrumb-item"><a href="#">Dashboard</a>
                         </li>
-                        <!--end nav-item-->
-                        <li class="breadcrumb-item active">Analytics</li>
+
                     </ol>
                 </div>
                 <h4 class="page-title">Dashboard Admin</h4>
