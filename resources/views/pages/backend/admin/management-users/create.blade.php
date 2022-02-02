@@ -126,20 +126,3 @@ Tambah User
 
 </div><!-- container -->
 @endsection
-
-@push('add-plugins-css')
-<link href="{{ asset('backend/plugins/datatables/datatable.css') }}" rel="stylesheet" type="text/css" />
-@endpush
-
-@push('add-plugins-js')
-<script src="{{ asset('backend/plugins/datatables/simple-datatables.js') }}"></script>
-@endpush
-
-@push('add-js')
-<script>
-    const dataTable = new simpleDatatables.DataTable("#table-datatables", {
-        searchable: true,
-        fixedHeight: false,
-    })
-</script>
-@endpush

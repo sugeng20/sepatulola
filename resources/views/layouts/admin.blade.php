@@ -71,6 +71,13 @@
                         </li>
                         <!--end nav-item-->
 
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::segment(1) == 'dongeng' ? 'menuitem-active' : '' }}"
+                                href="{{ route('dongeng.index') }}"><i class="ti ti-speakerphone menu-icon"></i><span>
+                                    Dongeng</span></a>
+                        </li>
+                        <!--end nav-item-->
+
                     </ul>
                 </div>
                 <!--end sidebarCollapse-->

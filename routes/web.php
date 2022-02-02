@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DongenController;
 use App\Http\Controllers\Admin\ManagementUsers;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -16,10 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AuthController::class, 'login']);
+Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/dashboard-admin', [DashboardController::class, 'index']);
-Route::post('/management-user/ganti-password/{id}', [ManagementUsers::class, 'gantiPassword'])->name('management-users.ganti-password');
-Route::resource('/management-users', ManagementUsers::class);
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard-admin', [DashboardController::class, 'index']);
+    Route::post('/management-user/ganti-password/{id}', [ManagementUsers::class, 'gantiPassword'])
+                ->name('management-users.ganti-password');
+    Route::resource('/management-users', ManagementUsers::class);
+    Route::resource('/dongeng', DongenController::class);
+});
+
