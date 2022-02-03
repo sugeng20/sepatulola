@@ -85,6 +85,13 @@
                         </li>
                         <!--end nav-item-->
 
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::segment(1) == 'game' ? 'menuitem-active' : '' }}"
+                                href="{{ route('game.index') }}"><i class="ti ti-device-gamepad menu-icon"></i><span>
+                                    Game</span></a>
+                        </li>
+                        <!--end nav-item-->
+
                     </ul>
                 </div>
                 <!--end sidebarCollapse-->

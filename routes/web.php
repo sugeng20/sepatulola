@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EbookController;
+use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Admin\ManagementUsers;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\AuthController;
@@ -29,5 +30,6 @@ Route::middleware(['auth'])->group(function() {
     Route::resource('/management-users', ManagementUsers::class);
     Route::resource('/video', VideoController::class);
     Route::resource('/ebook', EbookController::class);
+    Route::resource('/game', GameController::class);
 });
 
