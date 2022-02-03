@@ -78,6 +78,13 @@
                         </li>
                         <!--end nav-item-->
 
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::segment(1) == 'ebook' ? 'menuitem-active' : '' }}"
+                                href="{{ route('ebook.index') }}"><i class="ti ti-book menu-icon"></i><span>
+                                    Ebook</span></a>
+                        </li>
+                        <!--end nav-item-->
+
                     </ul>
                 </div>
                 <!--end sidebarCollapse-->
