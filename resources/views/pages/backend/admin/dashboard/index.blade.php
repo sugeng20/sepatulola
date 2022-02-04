@@ -29,72 +29,135 @@ Dashboard
     <!-- end page title end breadcrumb -->
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="media">
-                        <img src="{{ asset('backend/images/flags/us_flag.jpg') }}"
-                            class="me-3 thumb-md align-self-center rounded" alt="...">
-                        <div class="media-body align-self-center">
-                            <div class="coin-bal">
-                                <h4 class="mt-0 mb-1 font-22 fw-bold">50,289</h4>
-                                <p class="text-muted mb-0 fw-semibold">USA . Last Month
-                                    <span class="text-success">2.5% <i class="mdi mdi-arrow-up"></i></span>
+        <div class="col-md-3">
+            <a href="{{ route('management-users.index') }}">
+                <div class="card report-card">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col">
+                                <p class="text-dark mb-1 fw-semibold">Users</p>
+                                <h4 class="font-22 fw-bold">{{ $users }}</h4>
+                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
+                                            class="mdi mdi-checkbox-marked-circle-outline me-1"></i></span>{{ $users }}
+                                    Total Users
                                 </p>
                             </div>
+                            <div class="col-auto align-self-center">
+                                <div
+                                    class="bg-light-alt d-flex justify-content-center align-items-center thumb-md  rounded-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-users">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
-                        <!--end media body-->
                     </div>
-                    <!--end media-->
+                    <!--end card-body-->
                 </div>
-                <!--end card-body-->
-            </div>
+            </a>
             <!--end card-->
         </div>
         <!--end col-->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="media">
-                        <img src="{{ asset('backend/images/flags/germany_flag.jpg') }}"
-                            class="me-3 thumb-md align-self-center rounded" alt="...">
-                        <div class="media-body align-self-center">
-                            <div class="coin-bal">
-                                <h4 class="mt-0 mb-1 font-22 fw-bold">50,289</h4>
-                                <p class="text-muted mb-0 fw-semibold">Germany . Last Month
-                                    <span class="text-success">1.2% <i class="mdi mdi-arrow-up"></i></span>
+        <div class="col-md-3">
+            <a href="{{ route('video.index') }}">
+                <div class="card report-card">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col">
+                                <p class="text-dark mb-1 fw-semibold">Videos</p>
+                                <h4 class="font-22 fw-bold">{{ $videos }}</h4>
+                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
+                                            class="mdi mdi-checkbox-marked-circle-outline me-1"></i></span>{{ $videos }}
+                                    Total Videos
                                 </p>
                             </div>
+                            <div class="col-auto align-self-center">
+                                <div
+                                    class="bg-light-alt d-flex justify-content-center align-items-center thumb-md  rounded-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-video">
+                                        <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
-                        <!--end media body-->
                     </div>
-                    <!--end media-->
+                    <!--end card-body-->
                 </div>
-                <!--end card-body-->
-            </div>
+            </a>
             <!--end card-->
         </div>
         <!--end col-->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="media">
-                        <img src="{{ asset('backend/images/flags/spain_flag.jpg') }}"
-                            class="me-3 thumb-md align-self-center rounded" alt="...">
-                        <div class="media-body align-self-center">
-                            <div class="coin-bal">
-                                <h4 class="mt-0 mb-1 font-22 fw-bold">50,289</h4>
-                                <p class="text-muted mb-0 fw-semibold">Spain . Last Month
-                                    <span class="text-success">0.5% <i class="mdi mdi-arrow-up"></i></span>
+
+        <div class="col-md-3">
+            <a href="{{ route('ebook.index') }}">
+                <div class="card report-card">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col">
+                                <p class="text-dark mb-1 fw-semibold">Ebooks</p>
+                                <h4 class="font-22 fw-bold">{{ $ebooks }}</h4>
+                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
+                                            class="mdi mdi-checkbox-marked-circle-outline me-1"></i></span>{{ $ebooks }}
+                                    Total Ebooks
                                 </p>
                             </div>
+                            <div class="col-auto align-self-center">
+                                <div
+                                    class="bg-light-alt d-flex justify-content-center align-items-center thumb-md  rounded-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-book-open icon-dual">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
-                        <!--end media body-->
                     </div>
-                    <!--end media-->
+                    <!--end card-body-->
                 </div>
-                <!--end card-body-->
-            </div>
+            </a>
+            <!--end card-->
+        </div>
+        <!--end col-->
+
+        <div class="col-md-3">
+            <a href="{{ route('game.index') }}">
+                <div class="card report-card">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col">
+                                <p class="text-dark mb-1 fw-semibold">Games</p>
+                                <h4 class="font-22 fw-bold">{{ $games }}</h4>
+                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
+                                            class="mdi mdi-checkbox-marked-circle-outline me-1"></i></span>{{ $games }}
+                                    Total Games
+                                </p>
+                            </div>
+                            <div class="col-auto align-self-center">
+                                <div
+                                    class="bg-light-alt d-flex justify-content-center align-items-center thumb-md  rounded-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-smartphone">
+                                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end card-body-->
+                </div>
+            </a>
             <!--end card-->
         </div>
         <!--end col-->
