@@ -57,40 +57,13 @@
                     <ul class="navbar-nav tab-pane active" id="Main" role="tabpanel">
 
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'dashboard-admin' ? 'menuitem-active' : '' }}"
-                                href="{{ url('dashboard-admin') }}"><i
+                            <a class="nav-link {{ Request::segment(1) == 'dashboard-guru' ? 'menuitem-active' : '' }}"
+                                href="{{ url('dashboard-guru') }}"><i
                                     class="ti ti-dashboard menu-icon"></i><span>Dashboard</span></a>
                         </li>
                         <!--end nav-item-->
 
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'management-users' ? 'menuitem-active' : '' }}"
-                                href="{{ route('management-users.index') }}"><i
-                                    class="ti ti-users menu-icon"></i><span>Management
-                                    Users</span></a>
-                        </li>
-                        <!--end nav-item-->
 
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'video' ? 'menuitem-active' : '' }}"
-                                href="{{ route('video.index') }}"><i class="ti ti-accessible menu-icon"></i><span>
-                                    Dipakai Anak</span></a>
-                        </li>
-                        <!--end nav-item-->
-
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'ebook' ? 'menuitem-active' : '' }}"
-                                href="{{ route('ebook.index') }}"><i class="ti ti-friends menu-icon"></i><span>
-                                    Dipakai Orangtua</span></a>
-                        </li>
-                        <!--end nav-item-->
-
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'game' ? 'menuitem-active' : '' }}"
-                                href="{{ route('game.index') }}"><i class="ti ti-lego menu-icon"></i><span>
-                                    Dipakai Guru</span></a>
-                        </li>
-                        <!--end nav-item-->
 
                     </ul>
                 </div>

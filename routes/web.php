@@ -6,7 +6,9 @@ use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Admin\ManagementUsers;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Guru\DashboardController as GuruDashboardController;
 use Illuminate\Support\Facades\Route;
+use Ramsey\Uuid\Math\RoundingMode;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +35,6 @@ Route::middleware(['auth'])->group(function() {
     Route::resource('/game', GameController::class);
 });
 
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard-guru', [GuruDashboardController::class, 'index']);
+});
