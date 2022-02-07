@@ -72,6 +72,13 @@
                         <!--end nav-item-->
 
                         <li class="nav-item">
+                            <a class="nav-link {{ Request::segment(1) == 'category' ? 'menuitem-active' : '' }}"
+                                href="{{ route('category.index') }}"><i class="ti ti-list menu-icon"></i><span>
+                                    Kategori</span></a>
+                        </li>
+                        <!--end nav-item-->
+
+                        <li class="nav-item">
                             <a class="nav-link {{ Request::segment(1) == 'video' ? 'menuitem-active' : '' }}"
                                 href="{{ route('video.index') }}"><i class="ti ti-accessible menu-icon"></i><span>
                                     Dipakai Anak</span></a>

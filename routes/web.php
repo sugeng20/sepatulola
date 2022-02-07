@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EbookController;
 use App\Http\Controllers\Admin\GameController;
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/management-user/ganti-password/{id}', [ManagementUsers::class, 'gantiPassword'])
                 ->name('management-users.ganti-password');
     Route::resource('/management-users', ManagementUsers::class);
+    Route::resource('/category', CategoyController::class);
     Route::resource('/video', VideoController::class);
     Route::resource('/ebook', EbookController::class);
     Route::resource('/game', GameController::class);
