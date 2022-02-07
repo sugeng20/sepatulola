@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-Game
+Kontent
 @endsection
 
 @section('content')
@@ -15,12 +15,12 @@ Game
                         <li class="breadcrumb-item"><a href="#">Sepatulola</a>
                         </li>
                         <!--end nav-item-->
-                        <li class="breadcrumb-item"><a href="#">Game</a>
+                        <li class="breadcrumb-item"><a href="#">Kontent</a>
                         </li>
 
                     </ol>
                 </div>
-                <h4 class="page-title">Game</h4>
+                <h4 class="page-title">Kontent</h4>
             </div>
             <!--end page-title-box-->
         </div>
@@ -32,8 +32,8 @@ Game
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('game.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>
-                        Tambah Data
+                    <a href="{{ route('anak.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>
+                        Tambah Kontent
                     </a>
 
                     @if (Session::get('status'))
@@ -48,7 +48,8 @@ Game
                             <thead class="thead-light">
                                 <tr>
                                     <th>No</th>
-                                    <th>Judul</th>
+                                    <th>Category</th>
+                                    <th>Title</th>
                                     <th>Cover</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -60,20 +61,21 @@ Game
                                 @forelse ($items as $item)
                                 <tr>
                                     <td>{{ $no++ }}</td>
+                                    <td>{{ $item->category->name }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>
                                         <img width="50" height="50"
                                             src="{{ asset('backend/images/cover/' . $item->cover) }}" alt="">
                                     </td>
                                     <td>
-                                        <a href="{{ $item->link_game }}" title="Show" target="_blank"
+                                        <a href="{{ route('anak.show', $item->id) }}" title="Show"
                                             class="btn btn-info btn-sm"><i class="mdi mdi-eye-circle"></i>
                                         </a>
-                                        <a href="{{ route('game.edit', $item->id) }}" title="Edit"
+                                        <a href="{{ route('anak.edit', $item->id) }}" title="Edit"
                                             class="btn btn-warning btn-sm"><i class="mdi mdi-square-edit-outline"></i>
                                         </a>
 
-                                        <form class="d-inline" action="{{ route('game.destroy', $item->id) }}"
+                                        <form class="d-inline" action="{{ route('anak.destroy', $item->id) }}"
                                             method="POST" onsubmit="return confirm('Apakah Anda Yakin?')">
                                             @csrf
                                             @method('delete')
@@ -85,7 +87,7 @@ Game
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="4" class="text-center">Tidak Ada Data</td>
+                                    <td colspan="5" class="text-center">Tidak Ada Data</td>
                                 </tr>
                                 @endforelse
 

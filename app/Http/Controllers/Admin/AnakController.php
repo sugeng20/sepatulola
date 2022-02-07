@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Content;
 use Illuminate\Http\Request;
 
 class AnakController extends Controller
@@ -14,7 +16,9 @@ class AnakController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.backend.admin.content.index', [
+            'items' => Content::where('role', 'ANAK')->get()
+        ]);
     }
 
     /**
@@ -24,7 +28,11 @@ class AnakController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.backend.admin.content.create', [
+            'route_' => 'anak',
+            'role_' => 'ANAK',
+            'categories' => Category::where('role', 'ANAK')->get()
+        ]);
     }
 
     /**
