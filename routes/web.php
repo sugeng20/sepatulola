@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AnakController;
 use App\Http\Controllers\Admin\CategoyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EbookController;
 use App\Http\Controllers\Admin\GameController;
+use App\Http\Controllers\Admin\GuruController;
 use App\Http\Controllers\Admin\ManagementUsers;
+use App\Http\Controllers\Admin\OrangTuaController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Guru\DashboardController as GuruDashboardController;
@@ -32,9 +35,9 @@ Route::middleware(['auth'])->group(function() {
                 ->name('management-users.ganti-password');
     Route::resource('/management-users', ManagementUsers::class);
     Route::resource('/category', CategoyController::class);
-    Route::resource('/video', VideoController::class);
-    Route::resource('/ebook', EbookController::class);
-    Route::resource('/game', GameController::class);
+    Route::resource('/anak', AnakController::class);
+    Route::resource('/orang-tua', OrangTuaController::class);
+    Route::resource('/guru', GuruController::class);
 });
 
 Route::middleware(['auth'])->group(function() {

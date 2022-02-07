@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Content;
 use App\Models\Ebook;
 use App\Models\Game;
 use App\Models\User;
@@ -15,9 +16,9 @@ class DashboardController extends Controller
     {
         return view('pages.backend.admin.dashboard.index', [
             'users' => User::count(),
-            'ebooks' => Ebook::count(),
-            'videos' => Video::count(),
-            'games' => Game::count(),
+            'anak' => Content::where('role', 'ANAK')->count(),
+            'orangTua' => Content::where('role', 'ORANG TUA')->count(),
+            'guru' => Content::where('role', 'GURU')->count(),
         ]);
     }
 }

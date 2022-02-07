@@ -79,22 +79,22 @@
                         <!--end nav-item-->
 
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'video' ? 'menuitem-active' : '' }}"
-                                href="{{ route('video.index') }}"><i class="ti ti-accessible menu-icon"></i><span>
+                            <a class="nav-link {{ Request::segment(1) == 'anak' ? 'menuitem-active' : '' }}"
+                                href="{{ route('anak.index') }}"><i class="ti ti-accessible menu-icon"></i><span>
                                     Dipakai Anak</span></a>
                         </li>
                         <!--end nav-item-->
 
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'ebook' ? 'menuitem-active' : '' }}"
-                                href="{{ route('ebook.index') }}"><i class="ti ti-friends menu-icon"></i><span>
-                                    Dipakai Orangtua</span></a>
+                            <a class="nav-link {{ Request::segment(1) == 'orang-tua' ? 'menuitem-active' : '' }}"
+                                href="{{ route('orang-tua.index') }}"><i class="ti ti-friends menu-icon"></i><span>
+                                    Dipakai Orang tua</span></a>
                         </li>
                         <!--end nav-item-->
 
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::segment(1) == 'game' ? 'menuitem-active' : '' }}"
-                                href="{{ route('game.index') }}"><i class="ti ti-lego menu-icon"></i><span>
+                            <a class="nav-link {{ Request::segment(1) == 'guru' ? 'menuitem-active' : '' }}"
+                                href="{{ route('guru.index') }}"><i class="ti ti-lego menu-icon"></i><span>
                                     Dipakai Guru</span></a>
                         </li>
                         <!--end nav-item-->

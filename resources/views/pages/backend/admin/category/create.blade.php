@@ -76,6 +76,7 @@ Tambah Kategori
                                 <select name="type" id="type" class="form-control" required>
                                     <option value="PDF">PDF</option>
                                     <option value="TEKS">TEKS</option>
+                                    <option value="VIDEO">VIDEO</option>
                                     <option value="LINK TERKAIT">LINK TERKAIT</option>
                                 </select>
                             </div>
