@@ -84,27 +84,33 @@ Edit Kontent
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <label for="file" class="col-sm-2 col-form-label">File</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="file" name="file" id="file">
-                                <img src="{{ asset('backend/images/file/' . $item->file) }}" alt="file" width="100">
+
+                        <div id="pdf" style="display: {{ $item->category->type == 'PDF' ? 'block' : 'none' }};">
+                            <div class="mb-3 row">
+                                <label for="file" class="col-sm-2 col-form-label">File</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="file" name="file" id="file">
+                                    <img src="{{ asset('backend/images/file/' . $item->file) }}" alt="file" width="100">
+                                </div>
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <label for="link" class="col-sm-2 col-form-label">Link</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="link" id="link" placeholder="Masukan Link Content"
-                                    class="form-control" value="{{ $item->link }}">
+                        <div id="linkTerkait"
+                            style="display: {{ $item->category->type == 'LINK TERKAIT' ? 'block' : 'none' }};">
+                            <div class="mb-3 row">
+                                <label for="link" class="col-sm-2 col-form-label">Link</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="link" id="link" placeholder="Masukan Link Content"
+                                        class="form-control" value="{{ $item->link }}">
+                                </div>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
                             <label for="description" class="col-sm-2 col-form-label">Deskripsi</label>
                             <div class="col-sm-10">
-                                <textarea name="description" id="description" cols="30" rows="3" class="form-control"
-                                    required>{{ $item->description }}</textarea>
+                                <textarea name="description" id="description" cols="30" rows="3"
+                                    class="form-control ckeditor" required>{!! $item->description !!}</textarea>
                             </div>
                         </div>
 
@@ -125,3 +131,31 @@ Edit Kontent
 
 </div><!-- container -->
 @endsection
+
+@push('add-js')
+<script src="{{ url('backend/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('backend/js/jquery-3.5.1.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('#category_id').change(function() {
+            let type = $('#category_id option:selected').data('type');
+            if(type == 'TEKS') {
+                $('#pdf').attr('style', 'display: none;');
+                $('#linkTerkait').attr('style', 'display: none;');
+                $('#file').prop('required', false);
+                $('#link').prop('required', false);
+            } else if(type == 'PDF') {
+                $('#file').prop('required', true);
+                $('#link').prop('required', false);
+                $('#pdf').attr('style', 'display: block;');
+                $('#linkTerkait').attr('style', 'display: none;');
+            } else if(type == 'LINK TERKAIT') {
+                $('#file').prop('required', false);
+                $('#link').prop('required', true);
+                $('#pdf').attr('style', 'display: none;');
+                $('#linkTerkait').attr('style', 'display: block;');
+            }
+        })
+    })
+</script>
+@endpush

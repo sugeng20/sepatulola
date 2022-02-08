@@ -56,8 +56,10 @@ Tambah Kontent
                             <label for="category_id" class="col-sm-2 col-form-label">Kategori</label>
                             <div class="col-sm-10">
                                 <select name="category_id" id="category_id" class="form-control" required>
+                                    <option value="">- Pilih Kategori -</option>
                                     @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" data-type="{{ $category->type }}">{{
+                                        $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -67,7 +69,7 @@ Tambah Kontent
                             <label for="title" class="col-sm-2 col-form-label">Judul</label>
                             <div class="col-sm-10">
                                 <input type="text" name="title" id="title" placeholder="Masukan Judul Content"
-                                    class="form-control">
+                                    class="form-control" required>
                             </div>
                         </div>
 
@@ -79,26 +81,30 @@ Tambah Kontent
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <label for="file" class="col-sm-2 col-form-label">File</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="file" name="file" id="file" required>
+                        <div id="pdf" style="display: none;">
+                            <div class="mb-3 row">
+                                <label for="file" class="col-sm-2 col-form-label">File</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="file" name="file" id="file">
+                                </div>
                             </div>
                         </div>
 
-                        <div class="mb-3 row">
-                            <label for="link" class="col-sm-2 col-form-label">Link</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="link" id="link" placeholder="Masukan Link Content"
-                                    class="form-control">
+                        <div id="linkTerkait" style="display: none;">
+                            <div class="mb-3 row link">
+                                <label for="link" class="col-sm-2 col-form-label">Link</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="link" id="link" placeholder="Masukan Link Content"
+                                        class="form-control">
+                                </div>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
                             <label for="description" class="col-sm-2 col-form-label">Deskripsi</label>
                             <div class="col-sm-10">
-                                <textarea name="description" id="description" cols="30" rows="3" class="form-control"
-                                    required></textarea>
+                                <textarea name="description" id="description" cols="30" rows="3"
+                                    class="form-control ckeditor" required></textarea>
                             </div>
                         </div>
 
@@ -119,3 +125,31 @@ Tambah Kontent
 
 </div><!-- container -->
 @endsection
+
+@push('add-js')
+<script src="{{ url('backend/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('backend/js/jquery-3.5.1.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('#category_id').change(function() {
+            let type = $('#category_id option:selected').data('type');
+            if(type == 'TEKS') {
+                $('#pdf').attr('style', 'display: none;');
+                $('#linkTerkait').attr('style', 'display: none;');
+                $('#file').prop('required', false);
+                $('#link').prop('required', false);
+            } else if(type == 'PDF') {
+                $('#file').prop('required', true);
+                $('#link').prop('required', false);
+                $('#pdf').attr('style', 'display: block;');
+                $('#linkTerkait').attr('style', 'display: none;');
+            } else if(type == 'LINK TERKAIT') {
+                $('#file').prop('required', false);
+                $('#link').prop('required', true);
+                $('#pdf').attr('style', 'display: none;');
+                $('#linkTerkait').attr('style', 'display: block;');
+            }
+        })
+    })
+</script>
+@endpush

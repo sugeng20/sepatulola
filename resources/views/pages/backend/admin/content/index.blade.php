@@ -32,7 +32,7 @@ Kontent
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('anak.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>
+                    <a href="{{ route($route_.'.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>
                         Tambah Kontent
                     </a>
 

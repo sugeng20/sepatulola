@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Content;
 use Illuminate\Http\Request;
 
 class OrangTuaController extends Controller
@@ -14,7 +16,10 @@ class OrangTuaController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.backend.admin.content.index', [
+            'items' => Content::where('role', 'ORANG TUA')->get(),
+            'route_' => 'orang-tua'
+        ]);
     }
 
     /**
@@ -24,7 +29,11 @@ class OrangTuaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.backend.admin.content.create', [
+            'route_' => 'orang-tua',
+            'role_' => 'ORANG TUA',
+            'categories' => Category::where('role', 'ORANG TUA')->get()
+        ]);
     }
 
     /**
@@ -35,7 +44,33 @@ class OrangTuaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_id' => 'required',
+            'title' => 'required',
+            'cover' => 'required',
+            'description' => 'required',
+        ]);
+
+        $data = $request->all();
+        if($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $fileName = 'cover_' . uniqid() . '_' . date("Ymd") . 
+            '.'. $file->getClientOriginalExtension();
+            $file->move('backend/images/cover/', $fileName);
+            $data['cover'] = $fileName;
+        }
+
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = 'file_' . uniqid() . '_' . date("Ymd") . 
+            '.'. $file->getClientOriginalExtension();
+            $file->move('backend/images/file/', $fileName);
+            $data['file'] = $fileName;
+        }
+
+        Content::create($data);
+
+        return redirect()->route('orang-tua.index')->with('status', 'Berhasil Menambahkan Konten Baru');
     }
 
     /**
@@ -57,7 +92,12 @@ class OrangTuaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages.backend.admin.content.edit', [
+            'route_' => 'orang-tua',
+            'role_' => 'ORANG TUA',
+            'categories' => Category::where('role', 'ORANG TUA')->get(),
+            'item' => Content::findOrFail($id)
+        ]);
     }
 
     /**
@@ -69,7 +109,32 @@ class OrangTuaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'category_id' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $data = $request->all();
+        if($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $fileName = 'cover_' . uniqid() . '_' . date("Ymd") . 
+            '.'. $file->getClientOriginalExtension();
+            $file->move('backend/images/cover/', $fileName);
+            $data['cover'] = $fileName;
+        }
+
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = 'file_' . uniqid() . '_' . date("Ymd") . 
+            '.'. $file->getClientOriginalExtension();
+            $file->move('backend/images/file/', $fileName);
+            $data['file'] = $fileName;
+        }
+
+        Content::findOrFail($id)->update($data);
+
+        return redirect()->route('orang-tua.index')->with('status', 'Berhasil Mengubah Konten');
     }
 
     /**
@@ -80,6 +145,7 @@ class OrangTuaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Content::findOrFail($id)->delete();
+        return redirect()->route('orang-tua.index')->with('status', 'Berhasil Menghapus Konten');
     }
 }
