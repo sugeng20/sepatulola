@@ -12,4 +12,9 @@ class Content extends Model
     protected $fillable = [
         'role', 'category_id', 'title', 'cover', 'file', 'link', 'description'
     ];
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
 }
