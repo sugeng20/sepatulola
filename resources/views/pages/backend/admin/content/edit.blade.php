@@ -96,7 +96,7 @@ Edit Kontent
                         </div>
 
                         <div id="linkTerkait"
-                            style="display: {{ $item->category->type == 'LINK TERKAIT' ? 'block' : 'none' }};">
+                            style="display: {{ $item->category->type == 'LINK TERKAIT' || $item->category->type == 'VIDEO' ? 'block' : 'none' }};">
                             <div class="mb-3 row">
                                 <label for="link" class="col-sm-2 col-form-label">Link</label>
                                 <div class="col-sm-10">

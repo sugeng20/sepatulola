@@ -17,10 +17,10 @@ class CreateContentsTable extends Migration
             $table->id();
             $table->string('role');
             $table->string('category_id');
-            $table->string('title');
-            $table->string('cover');
-            $table->string('file')->nullable();
-            $table->string('link')->nullable();
+            $table->text('title');
+            $table->text('cover');
+            $table->text('file')->nullable();
+            $table->text('link')->nullable();
             $table->text('description');
             $table->timestamps();
         });

@@ -1,4 +1,4 @@
-@extends('layouts.guru')
+@extends('layouts.orang-tua')
 
 @section('title')
 Dashboard
@@ -20,7 +20,7 @@ Dashboard
 
                     </ol>
                 </div>
-                <h4 class="page-title">Dashboard Guru</h4>
+                <h4 class="page-title">Dashboard</h4>
             </div>
             <!--end page-title-box-->
         </div>
@@ -29,22 +29,35 @@ Dashboard
     <!-- end page title end breadcrumb -->
 
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-12">
+            <a href="{{ route('ortu-anak.category', [$slug, $category]) }}" class="btn btn-primary mb-3"><i
+                    class="mdi mdi-backburger"></i>
+                Kembali
+            </a>
+        </div>
+
+        <div class="col-lg-12">
             <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">{{ $content->title }}</h2>
+                </div>
+                <!--end card-header-->
                 <div class="card-body">
-                    <div class="media">
-                        <img src="{{ asset('backend/images/users/user-5.jpg') }}" alt="" class="rounded">
-                        <div class="media-body align-self-center ms-3 text-truncate">
-                            <h3 class="my-0 fw-bold">Anthony Stover</h3>
-                            <p class="text-muted mb-2 font-13">UI &amp; UX Designer, USA</p>
-                            <button type="button" class="btn btn-sm btn-de-primary">Massage</button>
-                        </div>
-                        <!--end media-body-->
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">
+                        {!! $content->link !!}
                     </div>
+                </div>
+                <div class="card-footer">
+                    <p class="text-muted mb-0">
+                        {!! $content->description !!}
+                    </p>
                 </div>
                 <!--end card-body-->
             </div>
+            <!--end card-->
         </div>
+
     </div>
     <!--end row-->
 

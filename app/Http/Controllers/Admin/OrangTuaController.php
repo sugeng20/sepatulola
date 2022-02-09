@@ -17,7 +17,7 @@ class OrangTuaController extends Controller
     public function index()
     {
         return view('pages.backend.admin.content.index', [
-            'items' => Content::where('role', 'ORANG TUA')->get(),
+            'items' => Content::where('role', 'ORANG TUA')->with('category')->get(),
             'route_' => 'orang-tua'
         ]);
     }
@@ -96,7 +96,7 @@ class OrangTuaController extends Controller
             'route_' => 'orang-tua',
             'role_' => 'ORANG TUA',
             'categories' => Category::where('role', 'ORANG TUA')->get(),
-            'item' => Content::findOrFail($id)
+            'item' => Content::with('category')->findOrFail($id)
         ]);
     }
 

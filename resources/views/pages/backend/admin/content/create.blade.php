@@ -143,7 +143,7 @@ Tambah Kontent
                 $('#link').prop('required', false);
                 $('#pdf').attr('style', 'display: block;');
                 $('#linkTerkait').attr('style', 'display: none;');
-            } else if(type == 'LINK TERKAIT') {
+            } else if(type == 'LINK TERKAIT' || type == 'VIDEO') {
                 $('#file').prop('required', false);
                 $('#link').prop('required', true);
                 $('#pdf').attr('style', 'display: none;');

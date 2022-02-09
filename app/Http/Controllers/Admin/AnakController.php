@@ -17,7 +17,7 @@ class AnakController extends Controller
     public function index()
     {
         return view('pages.backend.admin.content.index', [
-            'items' => Content::where('role', 'ANAK')->get(),
+            'items' => Content::where('role', 'ANAK')->with('category')->get(),
             'route_' => 'anak'
         ]);
     }
@@ -96,7 +96,7 @@ class AnakController extends Controller
             'route_' => 'anak',
             'role_' => 'ANAK',
             'categories' => Category::where('role', 'ANAK')->get(),
-            'item' => Content::findOrFail($id)
+            'item' => Content::with('category')->findOrFail($id)
         ]);
     }
 

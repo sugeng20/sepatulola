@@ -17,7 +17,7 @@ class GuruController extends Controller
     public function index()
     {
         return view('pages.backend.admin.content.index', [
-            'items' => Content::where('role', 'GURU')->get(),
+            'items' => Content::where('role', 'GURU')->with('category')->get(),
             'route_' => 'guru'
         ]);
     }
@@ -96,7 +96,7 @@ class GuruController extends Controller
             'route_' => 'guru',
             'role_' => 'GURU',
             'categories' => Category::where('role', 'GURU')->get(),
-            'item' => Content::findOrFail($id)
+            'item' => Content::with('category')->findOrFail($id)
         ]);
     }
 

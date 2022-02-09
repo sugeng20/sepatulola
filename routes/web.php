@@ -1,18 +1,17 @@
 <?php
 
 use App\Http\Controllers\Admin\AnakController;
-use App\Http\Controllers\Admin\CategoyController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\EbookController;
-use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Admin\GuruController;
 use App\Http\Controllers\Admin\ManagementUsers;
-use App\Http\Controllers\Admin\OrangTuaController;
-use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\OrangTuaController;;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Guru\DashboardController as GuruDashboardController;
+use App\Http\Controllers\Ortu\CategoryController as OrtuCategoryController;
+use App\Http\Controllers\Ortu\ContentController;
+use App\Http\Controllers\Ortu\DashboardController as OrtuDashboardController;
 use Illuminate\Support\Facades\Route;
-use Ramsey\Uuid\Math\RoundingMode;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +33,7 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/management-user/ganti-password/{id}', [ManagementUsers::class, 'gantiPassword'])
                 ->name('management-users.ganti-password');
     Route::resource('/management-users', ManagementUsers::class);
-    Route::resource('/category', CategoyController::class);
+    Route::resource('/category', CategoryController::class);
     Route::resource('/anak', AnakController::class);
     Route::resource('/orang-tua', OrangTuaController::class);
     Route::resource('/guru', GuruController::class);
@@ -42,4 +41,11 @@ Route::middleware(['auth'])->group(function() {
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard-guru', [GuruDashboardController::class, 'index']);
+});
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard-ortu', [OrtuDashboardController::class, 'index']);
+    Route::get('/content-orang-tua-anak/{slug}', [ContentController::class, 'index'])->name('ortu-anak.slug');
+    Route::get('/content-orang-tua-anak/{slug}/{category}', [ContentController::class, 'category'])->name('ortu-anak.category');
+    Route::get('/content-orang-tua-anak/{slug}/{category}/{id}', [ContentController::class, 'content'])->name('ortu-anak.id');
 });

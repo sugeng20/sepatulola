@@ -33,7 +33,6 @@ class CategorySeeder extends Seeder
             ['role' => 'ORANG TUA', 'name' => 'Ebook Dongeng', 'type' => 'PDF'],
             ['role' => 'ORANG TUA', 'name' => 'Modul', 'type' => 'PDF'],
             ['role' => 'ORANG TUA', 'name' => 'Video Tutorial', 'type' => 'VIDEO'],
-            ['role' => 'ORANG TUA', 'name' => 'Moodboard', 'type' => 'PDF'],
             ['role' => 'ORANG TUA', 'name' => 'Tips dan Trick', 'type' => 'TEKS'],
 
             ['role' => 'GURU', 'name' => 'Ebook Tema', 'type' => 'PDF'],

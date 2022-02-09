@@ -37,10 +37,6 @@ Dashboard
                             <div class="col">
                                 <p class="text-dark mb-1 fw-semibold">Users</p>
                                 <h4 class="font-22 fw-bold">{{ $users }}</h4>
-                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
-                                            class="mdi mdi-checkbox-marked-circle-outline me-1"></i></span>{{ $users }}
-                                    Total Users
-                                </p>
                             </div>
                             <div class="col-auto align-self-center">
                                 <div
@@ -71,10 +67,7 @@ Dashboard
                             <div class="col">
                                 <p class="text-dark mb-1 fw-semibold">Dipakai Anak</p>
                                 <h4 class="font-22 fw-bold">{{ $anak }}</h4>
-                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
-                                            class="mdi mdi-checkbox-marked-circle-outline me-1"></i></span>{{ $anak }}
-                                    Total Konten untuk Anak
-                                </p>
+
                             </div>
                             <div class="col-auto align-self-center">
                                 <div
@@ -105,11 +98,6 @@ Dashboard
                             <div class="col">
                                 <p class="text-dark mb-1 fw-semibold">Dipakai Orang Tua</p>
                                 <h4 class="font-22 fw-bold">{{ $orangTua }}</h4>
-                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
-                                            class="mdi mdi-checkbox-marked-circle-outline me-1"></i></span>{{ $orangTua
-                                    }}
-                                    Total Konten untuk Orang Tua
-                                </p>
                             </div>
                             <div class="col-auto align-self-center">
                                 <div
@@ -140,10 +128,6 @@ Dashboard
                             <div class="col">
                                 <p class="text-dark mb-1 fw-semibold">Dipakai Guru</p>
                                 <h4 class="font-22 fw-bold">{{ $guru }}</h4>
-                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
-                                            class="mdi mdi-checkbox-marked-circle-outline me-1"></i></span>{{ $guru }}
-                                    Total konten untuk Guru
-                                </p>
                             </div>
                             <div class="col-auto align-self-center">
                                 <div
