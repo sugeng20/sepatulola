@@ -1,4 +1,4 @@
-@extends('layouts.orang-tua')
+@extends('layouts.guru')
 
 @section('title')
 Dashboard
@@ -30,15 +30,14 @@ Dashboard
 
     <div class="row">
         <div class="col-12">
-            <a href="{{ route('ortu-anak.slug', $slug) }}" class="btn btn-primary mb-3"><i
-                    class="mdi mdi-backburger"></i>
+            <a href="{{ url('dashboard-guru') }}" class="btn btn-primary mb-3"><i class="mdi mdi-backburger"></i>
                 Kembali
             </a>
         </div>
 
         @foreach ($contents as $content)
         <div class="col-lg-4">
-            <a href="{{ $content->category->type == 'LINK TERKAIT' ? $content->link : route('ortu-anak.id', [$slug, $category, $content->id]) }}"
+            <a href="{{ $content->category->type == 'LINK TERKAIT' ? $content->link : route('content-guru.id', [$category, $content->id]) }}"
                 {{ $content->category->type == 'LINK TERKAIT' ? 'target="_blank"' : '' }}>
                 <div class="card">
                     <img class="card-img-top img-fluid bg-light-alt"
@@ -50,7 +49,7 @@ Dashboard
                     <div class="card-body">
                         <p class="card-text text-muted ">{!! str_replace(['
                         <p>', '</p>'], '', $content->description) !!}</p>
-                        <a href="{{ $content->category->type == 'LINK TERKAIT' ? $content->link : route('ortu-anak.id', [$slug, $category, $content->id]) }}"
+                        <a href="{{ $content->category->type == 'LINK TERKAIT' ? $content->link : route('content-guru.id', [$category, $content->id]) }}"
                             {{ $content->category->type == 'LINK TERKAIT' ? 'target="_blank"' : '' }}
                             class="btn btn-de-primary btn-sm">Go
                             somewhere</a>

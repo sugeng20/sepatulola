@@ -12,6 +12,7 @@ use App\Http\Controllers\Ortu\CategoryController as OrtuCategoryController;
 use App\Http\Controllers\Ortu\ContentController;
 use App\Http\Controllers\Ortu\DashboardController as OrtuDashboardController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ Route::middleware(['auth'])->group(function() {
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard-guru', [GuruDashboardController::class, 'index']);
+    Route::get('/content-guru/{category}', [GuruDashboardController::class, 'category'])->name('content-guru.category');
+    Route::get('/content-guru/{category}/{id}', [GuruDashboardController::class, 'content'])->name('content-guru.id');
 });
 
 Route::middleware(['auth'])->group(function() {

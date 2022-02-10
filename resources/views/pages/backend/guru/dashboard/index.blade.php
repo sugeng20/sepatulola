@@ -20,7 +20,7 @@ Dashboard
 
                     </ol>
                 </div>
-                <h4 class="page-title">Dashboard Guru</h4>
+                <h4 class="page-title">Dashboard</h4>
             </div>
             <!--end page-title-box-->
         </div>
@@ -29,22 +29,25 @@ Dashboard
     <!-- end page title end breadcrumb -->
 
     <div class="row">
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="media">
-                        <img src="{{ asset('backend/images/users/user-5.jpg') }}" alt="" class="rounded">
-                        <div class="media-body align-self-center ms-3 text-truncate">
-                            <h3 class="my-0 fw-bold">Anthony Stover</h3>
-                            <p class="text-muted mb-2 font-13">UI &amp; UX Designer, USA</p>
-                            <button type="button" class="btn btn-sm btn-de-primary">Massage</button>
+        @foreach ($categories as $category)
+        <div class="col-lg-6">
+            <a href="{{ route('content-guru.category', $category->id) }}">
+                <div class="card" style="background-color: {{ $color_ }};">
+                    <div class="card-body">
+                        <div class="media">
+                            <img src="{{ asset('backend/images/background/children.png') }}" width="100" alt=""
+                                class="rounded">
+                            <div class="media-body align-self-center ms-3 text-truncate">
+                                <h5 class="my-0 fw-bold text-white">{{ $category->name }}</h5>
+                            </div>
+                            <!--end media-body-->
                         </div>
-                        <!--end media-body-->
                     </div>
+                    <!--end card-body-->
                 </div>
-                <!--end card-body-->
-            </div>
+            </a>
         </div>
+        @endforeach
     </div>
     <!--end row-->
 

@@ -1,4 +1,4 @@
-@extends('layouts.orang-tua')
+@extends('layouts.guru')
 
 @section('title')
 Dashboard
@@ -30,7 +30,7 @@ Dashboard
 
     <div class="row">
         <div class="col-12">
-            <a href="{{ route('ortu-anak.category', [$slug, $category]) }}" class="btn btn-primary mb-3"><i
+            <a href="{{ route('content-guru.category', [$category]) }}" class="btn btn-primary mb-3"><i
                     class="mdi mdi-backburger"></i>
                 Kembali
             </a>
