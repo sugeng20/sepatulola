@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ManagementUsers;
 use App\Http\Controllers\Admin\OrangTuaController;;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Guru\DashboardController as GuruDashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Ortu\CategoryController as OrtuCategoryController;
 use App\Http\Controllers\Ortu\ContentController;
 use App\Http\Controllers\Ortu\DashboardController as OrtuDashboardController;
@@ -25,7 +26,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout']);
 

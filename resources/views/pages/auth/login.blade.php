@@ -89,6 +89,7 @@
                                     </form>
                                     <!--end form-->
                                     <div class="m-3 text-center text-muted">
+                                        <p><a href="{{ url('/') }}">Kembali</a></p>
                                         <p class="mb-0">&copy; {{ date('Y') }} <a
                                                 href="https://itgenic.co.id">itgenic.co.id</a> </p>
                                     </div>
