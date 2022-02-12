@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- SEO Meta description -->
-    <meta name="description" content="Paguyuban Duta Baca Indramayu">
+    <meta name="description" content="Sepatulola">
     <meta name="author" content="ThemeTags">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
@@ -20,7 +20,7 @@
     <meta property="og:type" content="article" />
 
     <!--title-->
-    <title>Paguyuban Duta Baca Indramayu</title>
+    <title>Sepatulola</title>
 
     <!--favicon icon-->
     <link rel="icon" href="#" type="image/png" sizes="16x16">
@@ -123,14 +123,14 @@
                     <div class="col-md-6 col-lg-5">
                         <div class="hero-animation-img">
                             <img class="img-fluid d-block m-auto animation-one"
-                                src="{{ asset('frontend/img/bg-duta-baca.png') }}" width="420" alt="animation image">
+                                src="{{ asset('frontend/img/bg-child.png') }}" width="420" alt="animation image">
 
                             <img class="img-fluid d-none d-lg-block animation-three"
                                 src="{{ asset('frontend/img/hero-animation-01.svg') }}" alt="animation image"
-                                width="120">
+                                width="70">
                             <img class="img-fluid d-none d-lg-block animation-four"
                                 src="{{ asset('frontend/img/hero-animation-03.svg') }}" alt="animation image"
-                                width="120">
+                                width="50">
                         </div>
                     </div>
                 </div>

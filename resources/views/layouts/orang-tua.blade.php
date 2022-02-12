@@ -26,12 +26,14 @@
     <div class="left-sidebar">
         <!-- LOGO -->
         <div class="brand">
-            <a href="index.html" class="logo">
+            <a href="{{ url('dashboard-ortu') }}" class="logo">
                 <span>
-                    <img src="{{ asset('backend/images/logo-sm.png') }}" alt="logo-small" class="logo-sm">
+                    <img src="{{ asset('frontend/img/logo-sepatulola-1.png') }}" alt="logo-small"
+                        style="width: 50px; height: 50px;" class="logo-sm">
                 </span>
                 <span>
-                    <img src="{{ asset('backend/images/logo.png') }}" alt="logo-large" class="logo-lg logo-light">
+                    <img src="{{ asset('frontend/img/logo-sepatulola-2.png') }}" style="width: 100px;height: 40px"
+                        alt="logo-large" class="logo-lg logo-light">
                     <img src="{{ asset('backend/images/logo-dark.png') }}" alt="logo-large" class="logo-lg logo-dark">
                 </span>
             </a>
