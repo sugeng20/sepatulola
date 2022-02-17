@@ -28,6 +28,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/registration', [AuthController::class, 'registration'])->name('registration');
 Route::post('/authenticate', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout']);
 

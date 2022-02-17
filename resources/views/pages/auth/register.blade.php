@@ -45,7 +45,7 @@
                                             <img src="{{ asset('frontend/img/logo-sepatulola-white.png') }}" height="50"
                                                 alt="logo" class="auth-logo">
                                         </a>
-                                        <h4 class="mt-3 mb-1 fw-semibold text-white font-18">SEPATU LOLA
+                                        <h4 class="mt-3 mb-1 fw-semibold text-white font-18">DAFTAR AKUN
                                         </h4>
                                         <p class="text-muted  mb-0">Sistem Informasi Terpadu <br /> Pengembangan
                                             Literasi Anak
@@ -53,21 +53,37 @@
                                     </div>
                                 </div>
                                 <div class="card-body pt-0">
-                                    @if (Session::get('status'))
-                                    <div class="my-3 alert alert-primary alert-dismissible fade show border-0 b-round"
-                                        role="alert">
-                                        <strong>{{ Session::get('status') }}</strong>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                            aria-label="Close"></button>
+                                    @if ($errors->any())
+                                    <div class="row my-3">
+                                        <div class="col-sm-12">
+                                            <div class="alert alert-danger dark" role="alert">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                     @endif
-                                    @error('username')
-                                    <div class="alert alert-danger text-center mt-2">Username dan Password anda salah !
-                                    </div>
-                                    @enderror
 
-                                    <form class="my-4" action="{{ url('/authenticate') }}" method="POST">
+                                    <form class="my-4" action="{{ route('registration') }}" method="POST">
                                         @csrf
+
+                                        <div class="form-group mb-2">
+                                            <label class="form-label" for="name">Nama</label>
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                                id="name" name="name" placeholder="Masukan Nama">
+                                        </div>
+                                        <!--end form-group-->
+
+                                        <div class="form-group mb-2">
+                                            <label class="form-label" for="no_hp">No HP</label>
+                                            <input type="text" class="form-control @error('no_hp') is-invalid @enderror"
+                                                id="no_hp" name="no_hp" placeholder="Masukan No HP">
+                                        </div>
+                                        <!--end form-group-->
+
                                         <div class="form-group mb-2">
                                             <label class="form-label" for="username">Username</label>
                                             <input type="text"
@@ -87,7 +103,7 @@
                                         <div class="form-group mb-0 row">
                                             <div class="col-12">
                                                 <div class="d-grid mt-3">
-                                                    <button class="btn btn-primary" type="submit">Log In <i
+                                                    <button class="btn btn-primary" type="submit">Daftar <i
                                                             class="fas fa-sign-in-alt ms-1"></i></button>
                                                 </div>
                                             </div>

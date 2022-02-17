@@ -83,7 +83,7 @@
                             <a class="nav-link page-scroll" href="#contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="{{ route('login') }}">Login</a>
+                            <a class="nav-link page-scroll" href="{{ route('login') }}">Masuk</a>
                         </li>
 
                     </ul>
@@ -117,7 +117,8 @@
                             <p class="lead">Sistem Informasi Terpadu
                                 Layanan Online Literasi Anak</p>
 
-                            <a href="#" class="btn solid-btn">Get Started</a>
+                            <a href="{{ route('register') }}" class="btn solid-btn">Daftar Sekarang</a>
+                            <a href="{{ route('login') }}" class="btn outline-btn">Masuk</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-5">
