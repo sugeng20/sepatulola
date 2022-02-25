@@ -79,22 +79,47 @@ Dashboard
                 height="600px"></iframe> --}}
 
 
-            <canvas id="pdf-render"></canvas>
-
-            <div class="top-bar">
-                <div class="row">
-                    <div class="col-lg-2"></div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="top-bar">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                        </div>
+                        <button class="btn" id="prev-page">
+                            <i class="fas fa-arrow-circle-left"></i>Kembali
+                        </button>
+                        <button class="btn" id="next-page">
+                            Selanjutnya <i class="fas fa-arrow-circle-right"></i>
+                        </button>
+                        <span class="page-info">
+                            Page <span id="page-num"></span> of <span id="page-count"></span>
+                        </span>
+                    </div>
                 </div>
-                <button class="btn" id="prev-page">
-                    <i class="fas fa-arrow-circle-left"></i>Kembali
-                </button>
-                <button class="btn" id="next-page">
-                    Selanjutnya <i class="fas fa-arrow-circle-right"></i>
-                </button>
-                <span class="page-info">
-                    Page <span id="page-num"></span> of <span id="page-count"></span>
-                </span>
+                <div class="col-12">
+                    <div class="card">
+                        <canvas id="pdf-render"></canvas>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="top-bar">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                        </div>
+                        <button class="btn" id="prev-page2">
+                            <i class="fas fa-arrow-circle-left"></i>Kembali
+                        </button>
+                        <button class="btn" id="next-page2">
+                            Selanjutnya <i class="fas fa-arrow-circle-right"></i>
+                        </button>
+                        <span class="page-info">
+                            Page <span id="page-num2"></span> of <span id="page-count2"></span>
+                        </span>
+                    </div>
+                </div>
             </div>
+
+
             @endif
         </div>
 
@@ -180,6 +205,7 @@ Dashboard
 
         // Output current page
         document.querySelector('#page-num').textContent = num;
+        document.querySelector('#page-num2').textContent = num;
     });
     };
 
@@ -217,6 +243,7 @@ Dashboard
         pdfDoc = pdfDoc_;
 
         document.querySelector('#page-count').textContent = pdfDoc.numPages;
+        document.querySelector('#page-count2').textContent = pdfDoc.numPages;
 
         renderPage(pageNum);
     })
@@ -232,9 +259,9 @@ Dashboard
 
     // Button Events
     document.querySelector('#prev-page').addEventListener('click', showPrevPage);
+    document.querySelector('#prev-page2').addEventListener('click', showPrevPage);
     document.querySelector('#next-page').addEventListener('click', showNextPage);
-    document.querySelector('#kembali').addEventListener('click', showPrevPage);
-    document.querySelector('#selanjutnya').addEventListener('click', showNextPage);
+    document.querySelector('#next-page2').addEventListener('click', showNextPage);
 
 </script>
 @endpush
