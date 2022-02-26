@@ -96,8 +96,10 @@ Dashboard
                         </span>
                     </div>
                 </div>
+
                 <div class="col-12">
                     <div class="card">
+                        <div class="loader3" id="loader"></div>
                         <canvas id="pdf-render"></canvas>
                     </div>
                 </div>
@@ -160,6 +162,76 @@ Dashboard
         color: #fff;
         padding: 1rem;
     }
+
+    /*loader 3*/
+    .loader3:before,
+    .loader3:after,
+    .loader3 {
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation: load7 1.8s infinite ease-in-out;
+        animation: load7 1.8s infinite ease-in-out;
+    }
+
+    .loader3 {
+        font-size: 10px;
+        margin: 80px auto;
+        position: relative;
+        text-indent: -9999em;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+
+    .loader3:before {
+        left: -3.5em;
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .loader3:after {
+        left: 3.5em;
+    }
+
+    .loader3:before,
+    .loader3:after {
+        content: '';
+        position: absolute;
+        top: 0;
+    }
+
+    @-webkit-keyframes load7 {
+
+        0%,
+        80%,
+        100% {
+            box-shadow: 0 2.5em 0 -1.3em #000000;
+        }
+
+        40% {
+            box-shadow: 0 2.5em 0 0 #000000;
+        }
+    }
+
+    @keyframes load7 {
+
+        0%,
+        80%,
+        100% {
+            box-shadow: 0 2.5em 0 -1.3em #000000;
+        }
+
+        40% {
+            box-shadow: 0 2.5em 0 0 #000000;
+        }
+    }
+
+    /*akhir loader3*/
 </style>
 @endpush
 
@@ -167,7 +239,7 @@ Dashboard
 @push('add-js')
 <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 <script>
-    const url = '{{ asset('backend/images/file/' . $content->file) }}';
+    const url = "{{ asset('backend/images/file/' . $content->file) }}";
 
     let pdfDoc = null,
     pageNum = 1,
@@ -190,17 +262,17 @@ Dashboard
         canvas.width = viewport.width;
 
         const renderCtx = {
-        canvasContext: ctx,
-        viewport
+            canvasContext: ctx,
+            viewport
         };
 
         page.render(renderCtx).promise.then(() => {
-        pageIsRendering = false;
+            pageIsRendering = false;
 
-        if (pageNumIsPending !== null) {
-            renderPage(pageNumIsPending);
-            pageNumIsPending = null;
-        }
+            if (pageNumIsPending !== null) {
+                renderPage(pageNumIsPending);
+                pageNumIsPending = null;
+            }
         });
 
         // Output current page
@@ -211,11 +283,11 @@ Dashboard
 
     // Check for pages rendering
     const queueRenderPage = num => {
-    if (pageIsRendering) {
-        pageNumIsPending = num;
-    } else {
-        renderPage(num);
-    }
+        if (pageIsRendering) {
+            pageNumIsPending = num;
+        } else {
+            renderPage(num);
+        }
     };
 
     // Show Prev Page
@@ -244,8 +316,8 @@ Dashboard
 
         document.querySelector('#page-count').textContent = pdfDoc.numPages;
         document.querySelector('#page-count2').textContent = pdfDoc.numPages;
-
         renderPage(pageNum);
+        document.querySelector('#loader').classList.remove('loader3');
     })
     .catch(err => {
         // Display error
