@@ -74,13 +74,21 @@
                             <a class="nav-link page-scroll" href="#About">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#features">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#team">Team</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link page-scroll" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link page-scroll dropdown-toggle" href="#" id="navbarDropdownPage"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Ebook Gratis
+                            </a>
+                            <div class="dropdown-menu submenu" aria-labelledby="navbarDropdownPage">
+                                <a class="dropdown-item"
+                                    href="https://play.google.com/store/apps/details?id=id.jabar.candil&hl=en_US&gl=US">Candil</a>
+                                <a class="dropdown-item"
+                                    href="https://play.google.com/store/apps/details?id=mam.reader.indramayu">iIndramayu</a>
+                                <a class="dropdown-item"
+                                    href="https://play.google.com/store/apps/details?id=mam.reader.ipusnas">iPusnas</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="{{ route('login') }}">Masuk</a>
@@ -118,7 +126,8 @@
                         <div class="hero-content-left ptb-100">
                             <h1 style="font-size: 40px"><span>SEPATU LOLA</span></h1>
                             <p class="lead">Sistem Informasi Terpadu
-                                Layanan Online Literasi Anak</p>
+                                Layanan Online Literasi Anak untuk meningkatkan kesadaran guru dan orangtua mengenai
+                                pentingnya literasi untuk anak usia dini</p>
 
                             <a href="{{ route('register') }}" class="btn solid-btn">Daftar Sekarang</a>
                             <a href="{{ route('login') }}" class="btn outline-btn">Masuk</a>
@@ -152,7 +161,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-7 col-md-8">
                         <div class="section-heading text-center mb-5">
-                            <h2>ABOUT SEPATU LOLA</span></h2>
+                            <h2>FITUR SEPATU LOLA</span></h2>
                             <p class="lead">
 
                             </p>
@@ -207,61 +216,35 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-md-7">
                             <div class="about-content-left section-heading">
-                                <h2>Use your android or ios device <br>
-                                    <span>to manage everything.</span>
+                                <h2>ABOUT SEPATULOLA
                                 </h2>
 
                                 <div class="single-feature mb-4 mt-5">
-                                    <div class="icon-box-wrap d-flex align-items-center mb-2">
-                                        <div class="mr-3 icon-box">
-                                            <img src="{{ asset('frontend/img/image-icon-1.png') }}" alt="icon image"
-                                                class="img-fluid">
-                                        </div>
-                                        <p class="mb-0">Proactively syndicate open-source e-markets after low-risk
-                                            high-yield
-                                            synergy. Professionally
-                                            simplify visionary technology.</p>
-                                    </div>
+                                    <p>
+                                        Sepatu Lola merupakan kepanjangan dari Sistem Informasi Tepadu Layanan Online
+                                        Literasi Anak, dimana guru dan orangtua
+                                        dapat mengaksesnya untuk mendapatkan berbagai informasi dan media pendukung
+                                        literasi anak yang di integrasikan melalui
+                                        sistem layanan terpadu. Terdapat berbagai fitur yang dapat dijelajahi untuk
+                                        dipakai anak, orangtua dan guru, seperti
+                                        teks literasi (dongeng, cerpen, komik), video visualisasi hingga modul
+                                        pembelajaran. Perancangan sistem ini merupakan
+                                        hasil evaluasi dari berbagai program yang telah dilaksanakan untuk dikembangkan
+                                        kembali melalui relasi dan diperbaharui
+                                        oleh moderinasasi. Dengan adanya inovasi ini, diharapkan dapat meningkatkan
+                                        kesadaran guru dan orangtua mengenai
+                                        pentingnya literasi untuk anak usia dini sehingga mampu menguatkan pendidikan
+                                        dan tujuan peningkatan IPM dapat
+                                        terwujudkan.
+                                    </p>
                                 </div>
-                                <div class="single-feature mb-4">
-                                    <div class="icon-box-wrap mb-2">
-                                        <div class="mr-3 icon-box">
-                                            <img src="{{ asset('frontend/img/image-icon-2.png') }}" alt="icon image"
-                                                class="img-fluid">
-                                        </div>
-                                        <p class="mb-0">Intrinsicly aggregate cutting-edge internal or "organic" sources
-                                            through pandemic manufactured products. Synergistically.</p>
-                                    </div>
-                                    <p></p>
-                                </div>
-                                <div class="single-feature mb-4">
-                                    <div class="icon-box-wrap mb-2">
-                                        <div class="mr-3 icon-box">
-                                            <img src="{{ asset('frontend/img/image-icon-3.png') }}" alt="icon image"
-                                                class="img-fluid">
-                                        </div>
-                                        <p class="mb-0">Completely administrate empowered e-tailers after extensive
-                                            experiences. Holisticly leverage existing quality networks.</p>
-                                    </div>
-                                    <p></p>
-                                </div>
-                                <div class="single-feature mb-4">
-                                    <div class="icon-box-wrap mb-2">
-                                        <div class="mr-3 icon-box">
-                                            <img src="{{ asset('frontend/img/image-icon-4.png') }}" alt="icon image"
-                                                class="img-fluid">
-                                        </div>
-                                        <p class="mb-0">Intrinsicly incentivize functionalized metrics whereas go
-                                            forward networks. Collaboratively fabricate clicks-and-mortar intellectual.
-                                        </p>
-                                    </div>
-                                    <p></p>
-                                </div>
+
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="about-content-right">
-                                <img src="{{ asset('frontend/img/image-15.png') }}" alt="about us" class="img-fluid">
+                                <img src="{{ asset('frontend/img/logo-sepatulola.png') }}" alt="about us"
+                                    class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -271,6 +254,7 @@
         </div>
         <!--overflow block end-->
 
+        {{--
         <!--features section start-->
         <section id="features" class="feature-section ptb-100">
             <div class="container">
@@ -438,7 +422,9 @@
             </div>
         </section>
         <!--features section end-->
+        --}}
 
+        {{--
         <!--our blog section start-->
         <section id="blog" class="our-blog-section ptb-100 primary-bg">
             <div class="container">
@@ -518,7 +504,9 @@
             </div>
         </section>
         <!--our blog section end-->
+        --}}
 
+        {{--
         <!--our team section start-->
         <section id="team" class="team-member-section ptb-100">
             <div class="container">
@@ -614,33 +602,20 @@
             </div>
         </section>
         <!--our team section end-->
-
+        --}}
 
         <!--contact us section start-->
-        <section id="contact" class="contact-us gray-light-bg ptb-100">
+        <section id="contact" class="contact-us ptb-100">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 pb-3 message-box d-none">
-                        <div class="alert alert-danger"></div>
-                    </div>
-                    <div class="col-md-5">
+
+                    <div class="col-md-12">
                         <div class="section-heading">
                             <h3>Contact with us</h3>
-                            <p>It's very easy to get in touch with us. Just use the contact form or pay us a
-                                visit for a coffee at the office. Dynamically innovate competitive technology after an
-                                expanded array of leadership.</p>
                         </div>
-                        <div class="footer-address">
-                            <h6><strong>Head Office</strong></h6>
-                            <p>121 King St, Melbourne VIC 3000, Australia</p>
-                            <ul>
-                                <li><span>Phone: +61 2 8376 6284</span></li>
-                                <li><span>Email : <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></span>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-12">
                         <form action="#" method="POST" id="contactForm" class="contact-us-form" novalidate="novalidate">
                             <h5>Reach us quickly</h5>
                             <div class="row">
@@ -749,24 +724,18 @@
                             <h5 class="mb-3 text-white">Support</h5>
                             <ul class="list-unstyled support-list">
                                 <li class="mb-2 d-flex align-items-center"><span class="ti-location-pin mr-2"></span>
-                                    121 King Melbourne
-                                    <br>Australia 3000
+                                    Dinas Perpustakaan dan Arsip Kabupaten Indramayu
                                 </li>
                                 <li class="mb-2 d-flex align-items-center"><span class="ti-mobile mr-2"></span> <a
                                         href="tel:+61283766284"> +61 2 8376 6284</a></li>
                                 <li class="mb-2 d-flex align-items-center"><span class="ti-email mr-2"></span><a
-                                        href="mailto:mail@example.com"> mail@example.com</a></li>
+                                        href="sepatulola@sepatuloal.com"> sepatulola@sepatuloal.com</a></li>
                                 <li class="mb-2 d-flex align-items-center"><span class="ti-world mr-2"></span><a
-                                        href="#"> www.yourdomain.com</a></li>
+                                        href="#"> www.sepatulola.com</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="footer-nav-wrap text-white">
-                            <h5 class="mb-3 text-white">Location</h5>
-                            <img src="{{ asset('frontend/img/map.png') }}" alt="location map" class="img-fluid">
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
