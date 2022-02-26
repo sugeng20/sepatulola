@@ -85,6 +85,9 @@
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="{{ route('login') }}">Masuk</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="{{ route('register') }}">Daftar</a>
+                        </li>
 
                     </ul>
                 </div>
