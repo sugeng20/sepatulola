@@ -81,7 +81,12 @@ class GuruController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.backend.admin.content.show', [
+            'route_' => 'guru',
+            'role_' => 'GURU',
+            'categories' => Category::where('role', 'ANAK')->get(),
+            'content' => Content::with('category')->findOrFail($id)
+        ]);
     }
 
     /**

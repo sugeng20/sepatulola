@@ -68,14 +68,14 @@ Kontent
                                             src="{{ asset('backend/images/cover/' . $item->cover) }}" alt="">
                                     </td>
                                     <td>
-                                        <a href="{{ route('anak.show', $item->id) }}" title="Show"
+                                        <a href="{{ route($route_.'.show', $item->id) }}" title="Show"
                                             class="btn btn-info btn-sm"><i class="mdi mdi-eye-circle"></i>
                                         </a>
-                                        <a href="{{ route('anak.edit', $item->id) }}" title="Edit"
+                                        <a href="{{ route($route_.'.edit', $item->id) }}" title="Edit"
                                             class="btn btn-warning btn-sm"><i class="mdi mdi-square-edit-outline"></i>
                                         </a>
 
-                                        <form class="d-inline" action="{{ route('anak.destroy', $item->id) }}"
+                                        <form class="d-inline" action="{{ route($route_.'.destroy', $item->id) }}"
                                             method="POST" onsubmit="return confirm('Apakah Anda Yakin?')">
                                             @csrf
                                             @method('delete')

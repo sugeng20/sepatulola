@@ -81,7 +81,12 @@ class AnakController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.backend.admin.content.show', [
+            'route_' => 'anak',
+            'role_' => 'ANAK',
+            'categories' => Category::where('role', 'ANAK')->get(),
+            'content' => Content::with('category')->findOrFail($id)
+        ]);
     }
 
     /**

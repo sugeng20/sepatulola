@@ -81,7 +81,12 @@ class OrangTuaController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.backend.admin.content.show', [
+            'route_' => 'orang-tua',
+            'role_' => 'ORANG TUA',
+            'categories' => Category::where('role', 'ORANG TUA')->get(),
+            'content' => Content::with('category')->findOrFail($id)
+        ]);
     }
 
     /**
