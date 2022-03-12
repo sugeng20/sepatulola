@@ -101,6 +101,13 @@
                         </li>
                         <!--end nav-item-->
 
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::segment(1) == 'laporan' ? 'menuitem-active' : '' }}"
+                                href="{{ route('laporan.index') }}"><i class="ti ti-report menu-icon"></i><span>
+                                    Laporan</span></a>
+                        </li>
+                        <!--end nav-item-->
+
                     </ul>
                 </div>
                 <!--end sidebarCollapse-->

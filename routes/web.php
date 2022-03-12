@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AnakController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GuruController;
+use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Admin\ManagementUsers;
 use App\Http\Controllers\Admin\OrangTuaController;;
 use App\Http\Controllers\AuthController;
@@ -42,6 +43,7 @@ Route::middleware(['auth'])->group(function() {
     Route::resource('/anak', AnakController::class);
     Route::resource('/orang-tua', OrangTuaController::class);
     Route::resource('/guru', GuruController::class);
+    Route::resource('/laporan', LaporanController::class);
 });
 
 Route::middleware(['auth'])->group(function() {

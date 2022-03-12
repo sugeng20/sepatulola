@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Guru;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Content;
+use App\Models\Log;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -30,6 +32,11 @@ class DashboardController extends Controller
 
     public function content($category, $id)
     {
+        Log::create([
+            'id_user' => Auth::user()->id,
+            'id_content' => $id,
+        ]);
+
         return view('pages.backend.guru.dashboard.show', [
             'content' => Content::with('category')->findOrFail($id),
             'category' => $category,
