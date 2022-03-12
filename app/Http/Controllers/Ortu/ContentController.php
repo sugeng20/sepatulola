@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Ortu;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Content;
+use App\Models\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContentController extends Controller
 {
@@ -36,6 +38,11 @@ class ContentController extends Controller
 
     public function content($slug, $category, $id)
     {
+        Log::create([
+            'id_user' => Auth::user()->id,
+            'id_content' => $id,
+        ]);
+        
         return view('pages.backend.orang-tua.content.show', [
             'content' => Content::with('category')->findOrFail($id),
             'slug' => $slug,
