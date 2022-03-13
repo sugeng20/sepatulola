@@ -32,6 +32,11 @@ Laporan
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <a href="{{ route('laporan.create') }}" class="btn btn-danger" target="_blank"><i
+                            class="mdi mdi-export"></i>
+                        Export PDF
+                    </a>
+
                     @if (Session::get('status'))
                     <div class="my-3 alert alert-primary alert-dismissible fade show border-0 b-round" role="alert">
                         <strong>{{ Session::get('status') }}</strong>
@@ -45,6 +50,7 @@ Laporan
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
+                                    <th>ROLE</th>
                                     <th>Akses</th>
                                 </tr>
                             </thead>
@@ -56,7 +62,8 @@ Laporan
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ App\Models\Log::where('id_user', $item->id)->count() }}</td>
+                                    <td>{{ $item->role }}</td>
+                                    <td>{{ $item->logs_count }}x Baca</td>
                                 </tr>
                                 @empty
                                 <tr>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PDF;
+
 
 class LaporanController extends Controller
 {
@@ -15,7 +17,7 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $items = User::where('role', 'ORTU')->get();
+        $items = User::withCount('logs')->orderBy('logs_count', 'DESC')->where('role', '!=', 'ADMIN')->get();
         return view('pages.backend.admin.laporan.index', compact('items'));
     }
 
@@ -26,7 +28,9 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        //
+        $items = User::withCount('logs')->orderBy('logs_count', 'DESC')->where('role', '!=', 'ADMIN')->get();
+        $pdf = PDF::loadview('pages.backend.admin.laporan.pdf',compact('items'));
+    	return $pdf->stream('laporan-user.pdf');
     }
 
     /**
